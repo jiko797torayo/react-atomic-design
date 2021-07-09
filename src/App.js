@@ -1,8 +1,11 @@
+import { BrowserRouter } from "react-router-dom";
 import { PrimaryButton } from "./components/atoms/button/PrimaryButton";
 import { SecondaryButton } from "./components/atoms/button/SecondaryButton";
 import { SearchInput } from "./components/molecules/SearchInput";
 import { UserCard } from "./organisms/user/UserCard";
 import "./styles.css";
+import { HeaderOnly } from "./templates/HeaderOnly";
+import { DefaultLayout } from "./templates/DefaultLayout";
 
 const user = {
   name: "じゃけぇ",
@@ -16,12 +19,14 @@ const user = {
 };
 export default function App() {
   return (
-    <div className="App">
-      <PrimaryButton>テスト</PrimaryButton>
-      <SecondaryButton>テスト</SecondaryButton>
-      <br />
-      <SearchInput />
-      <UserCard user={user} />
-    </div>
+    <BrowserRouter>
+      <DefaultLayout className="App">
+        <PrimaryButton>テスト</PrimaryButton>
+        <SecondaryButton>テスト</SecondaryButton>
+        <br />
+        <SearchInput />
+        <UserCard user={user} />
+      </DefaultLayout>
+    </BrowserRouter>
   );
 }
